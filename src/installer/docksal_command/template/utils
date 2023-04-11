@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+
+
+#-------------------------- ARGUMENTS --------------------------------
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -u|--baseurl|--baseUrl)
+      BASEURL="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -s|--spec)
+      SPEC="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -b|--browser)
+      BROWSER="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -e|--env)
+      ENV="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -*|--*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      POSITIONAL_ARGS+=("$1") # save positional arg
+      shift # past argument
+      ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+
+#-------------------------- Init base url --------------------------------
+if [[ -z "$BASEURL" && -z "$DEFAULT_BASE_URL" ]]; then
+  BASEURL="http://${COMPOSE_PROJECT_NAME_SAFE}_web_1"
+fi
+if [ -z "$BASEURL" ]; then
+  BASEURL=$DEFAULT_BASE_URL
+fi
+ARG_BASEURL="--config baseUrl=$BASEURL"
+
+#-------------------------- Init Network --------------------------------
+if [ $ADD_DOCKSAL_NETWORK ]; then
+  # Add docksal network.
+  ARG_NETWORK="--net=${COMPOSE_PROJECT_NAME_SAFE}_default "
+fi
+
+#-------------------------- Init specs --------------------------------
+if [ -n "$SPEC" ]; then
+  ARG_SPEC="--spec cypress/e2e/**/$SPEC"
+fi
+
+#-------------------------- Browser --------------------------------
+if [ -n "$BROWSER" ]; then
+  ARG_BROWSER="--browser $BROWSER"
+fi
+
+#-------------------------- ENV variables --------------------------------
+if [ -n "$ENV" ]; then
+  ARG_ENV="--env $ENV"
+fi

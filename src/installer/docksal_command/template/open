@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+## Run cypress tests in docker
+##
+## Usage: fin cypress/run
+## Parameters:
+##  -u|--baseurl|--baseUrl The base url
+##  -b|--browser The browser to open
+
+# Default vars.
+DEFAULT_BASE_URL="http://$VIRTUAL_HOST"
+
+# Init args
+. $(dirname "$0")/utils
+
+#-------------------------- RUN Command --------------------------------
+cd <%= dir %>
+yarn cypress open \
+ $ARG_BASEURL \
+ $ARG_BROWSER \
+ $ARG_ENV \

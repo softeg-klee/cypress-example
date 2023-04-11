@@ -1,6 +1,0 @@
-{
-    "baseUrl": "http://ppd.dev.test.lan.net",
-    "env": {
-        "env1": "var1"
-    }
-}

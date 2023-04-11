@@ -1,6 +1,0 @@
-{ 
-    "baseUrl": "https://github.com/softeg-klee/cypress-example",
-    "env": {
-        "env1": "var1"
-    }
-}

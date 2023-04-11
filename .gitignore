@@ -1,0 +1,8 @@
+.idea
+/**/node_modules
+/**/yarn-error.log
+
+# Generated elements in the dev environment should be ignored.
+cypress.config.js
+cypress/*
+installer.config.json

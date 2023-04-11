@@ -1,14 +1,29 @@
 {
-  "name": "e2e",
-  "version": "1.0.0",
-  "description": "Cypress tests.",
-  "main": "index.js",
+  "name": "cypress-example",
+  "version": "0.0.1",
+  "main": "helper.js",
+  "author": "tsecher <thomas.secher@kleegroup.com>",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "set-up": "node src/init.js",
+    "generate": "node src/generate.js",
+    "init-wsl": "node src/init-wsl.js"
   },
-  "author": "Teguia Abdou",
-  "license": "ISC",
-  "devDependencies": {
-    "cypress": "^4.12.1"
+  "bin": {
+    "set-up": "bin/set-up",
+    "generate": "bin/generate",
+    "init-wsl": "bin/init-wsl"
+  },
+  "dependencies": {
+    "change-case": "^4.1.2",
+    "colors": "^1.4.0",
+    "glob": "^8.0.3",
+    "mem-fs": "^2.2.1",
+    "mem-fs-editor": "^9.4.0",
+    "os": "^0.1.2",
+    "postinstall": "^0.7.4",
+    "prompts": "^2.4.2",
+    "yaml": "^2.1.1",
+    "yargs": "^17.5.1"
   }
 }

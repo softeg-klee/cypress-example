@@ -1,0 +1,5 @@
+{
+  "title": "Docksal command",
+  "description": "Ajouter une commande docksal pour lancer les tests cypress",
+  "end": "La commande docksal a été ajoutée. Vous pouvez désormais lancer la commande `fin cypress/run`"
+}

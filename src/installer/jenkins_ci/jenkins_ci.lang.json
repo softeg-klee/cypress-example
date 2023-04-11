@@ -1,0 +1,4 @@
+{
+  "title": "Jenkins CI",
+  "description": "Ajoute un fichier de configuration Jenkins pour lancer les tests cypress"
+}

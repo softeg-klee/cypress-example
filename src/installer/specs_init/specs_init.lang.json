@@ -1,0 +1,7 @@
+{
+  "title": "Répertoire des specifications",
+  "description": "Initialise le repertoire de définition des tests (cypress.config.js, specs, etc.)",
+  "end": "Le répertoire de tests a été correctement initialisé",
+  "pass_on_console_error": "Empêcher cypress de considérer les erreurs console comme fail ? ",
+  "default_base_url": "Url de base par défaut ?"
+}

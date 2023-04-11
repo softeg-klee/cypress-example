@@ -1,0 +1,6 @@
+
+# Cypress e2e files.
+<%= dir %>/node_modules
+<%= dir %>/cypress/videos
+<%= dir %>/cypress/screenshots
+<%= dir %>/cypress.env.json

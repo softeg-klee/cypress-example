@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+## Run cypress tests in docker
+##
+## Usage: fin cypress/run
+## Parameters:
+##  -b|--baseurl|--baseUrl The base url
+
+# Default vars.
+DEFAULT_BASE_URL="http://${COMPOSE_PROJECT_NAME_SAFE}_web_1"
+ADD_DOCKSAL_NETWORK=1
+
+# Init args.
+. $(dirname "$0")/utils
+
+#-------------------------- DOCKER RUN --------------------------------
+docker run -it \
+  -v ${PROJECT_ROOT}/<%= dir %>:/e2e \
+  -w /e2e \
+  $ARG_NETWORK \
+  cypress/included:<%= cypress_version %> \
+  $ARG_BASEURL \
+  $ARG_SPEC \
+  $ARG_ENV \
